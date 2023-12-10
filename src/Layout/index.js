@@ -1,18 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 import Header from "./Header";
 import NotFound from "./NotFound";
-import {Route, Switch} from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import DeckDetails from "../Decks/DeckDetails";
 import EditDeck from "../Decks/EditDeck";
 import CreateDeck from "../Decks/CreateDeck";
 import AddCard from "../Cards/AddCard"
 import EditCard from "../Cards/EditCard";
-import { useRouteMatch } from "react-router-dom/cjs/react-router-dom";
 import Home from "../Home/Home"
 import StudyDeckView from "../Decks/Study/StudyDeckView";
 
 function Layout() {
-
 
     return (
     <>
@@ -46,7 +44,6 @@ function Layout() {
                 </Route>
             </Switch>
         </div>
-
     </>
   );
 }

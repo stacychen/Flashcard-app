@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { createCard, readDeck } from "../utils/api";
 import Navigation from "../Layout/Navigation";
+import CardForm from "./CardForm";
 
 function AddCard() {
     const [front, setFront] = useState('')
     const [back, setBack] = useState('')
     const [deck, setDeck] = useState({});
-    const {deckId} = useParams();
+    const { deckId } = useParams();
     const history = useHistory()
 
     useEffect(() => {
@@ -28,7 +29,6 @@ function AddCard() {
 
     const handleDone = async (event) => {
         event.preventDefault();
-        // await createCard(deckId, {front, back})
         history.push(`/decks/${deck.id}`)
     }
 
@@ -43,32 +43,11 @@ function AddCard() {
         <div>
             <Navigation deck={deck} deckName={deck.name} last='Add Card' />
             <div className="row g-3">
-            <legend>Add Card: {deck.name}</legend>
-            <form>
-                <label htmlFor="front">Front</label>
-                <textarea
-                    className="form-control"
-                    id="front"
-                    type="text"
-                    name="front"
-                    onChange={handleFrontChange}
-                    placeholder='Front side of card'
-                    value={front}
-                    style={{width: '500px', height: '100px'}} />
-                <label htmlFor="back">Back</label>
-                <textarea
-                    className="form-control"
-                    id="back"
-                    type="text"
-                    name="back"
-                    onChange={handleBackChange}
-                    placeholder='Back side of card'
-                    value={back}
-                    style={{width: '500px', height: '100px', marginBottom: '20px'}} />
+                <legend>Add Card: {deck.name}</legend>
+                    <CardForm isEdit={false} deck={deck} handleFrontChange={handleFrontChange} handleBackChange={handleBackChange} />
+            </div>
                 <button type='submit' onClick={handleDone} className='btn btn-primary'>Done</button>
                 <button type='submit' onClick={handleSave} className='btn btn-secondary'>Save</button>
-            </form>
-            </div>
         </div>
     )
 }

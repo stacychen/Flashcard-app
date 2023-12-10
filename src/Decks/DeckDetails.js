@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import {useParams, Link, useHistory} from "react-router-dom";
-import {deleteCard, deleteDeck, readCard, readDeck} from "../utils/api";
+import { useParams, Link, useHistory } from "react-router-dom";
+import { deleteCard, deleteDeck, readDeck } from "../utils/api";
 import Navigation from "../Layout/Navigation";
 
 
@@ -9,7 +9,6 @@ function DeckDetails() {
     const { deckId, cardId } = useParams();
     const [toDelete, setToDelete] = useState(false)
     const history = useHistory()
-
 
     useEffect(() => {
 
@@ -38,7 +37,6 @@ function DeckDetails() {
             setToDelete(false)
         }
     };
-
 
     return (
         <div>

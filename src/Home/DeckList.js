@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import Deck from "./Deck";
-
 import {deleteDeck, listDecks, readCard} from "../utils/api";
 
 export const DeckList = () => {
     const [decks, setDecks] = useState([]);
     const {deckId} = useParams();
-    const history = useHistory()
     const [toDelete, setToDelete] = useState(false)
 
     useEffect(() => {

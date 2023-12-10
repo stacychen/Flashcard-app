@@ -8,10 +8,8 @@ function CreateDeck () {
 
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
-
     const handleNameChange = (event) => {
         setName(event.target.value)
-
     }
 
     const handleDescriptionChange = (event) => {
@@ -61,7 +59,6 @@ function CreateDeck () {
             </div>
         </div>
     )
-
 }
 
 export default CreateDeck;

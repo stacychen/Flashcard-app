@@ -7,9 +7,7 @@ import { useParams } from "react-router-dom";
 function StudyDeckView () {
 
     const [deck, setDeck] = useState({cards: []});
-
     const {deckId, cardId} = useParams();
-
 
     useEffect(() => {
         async function loadDeck() {
@@ -19,7 +17,6 @@ function StudyDeckView () {
 
         loadDeck();
     }, [deckId]);
-
 
     if(deck.cards.length > 2) {
         return  <StudyDeck deck={deck} />
